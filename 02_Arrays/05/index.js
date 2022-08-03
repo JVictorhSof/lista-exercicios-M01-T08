@@ -15,7 +15,7 @@ function mediaSalarial(infos) {
   let totalI = 0;
   let itensI = 0;
   let arraySomas = [];
-  for (let item of dados) {
+  for (let item of infos) {
     if (item[0] === "A") {
       somaA = item.slice(1);
       for (let i of somaA) {
@@ -26,7 +26,7 @@ function mediaSalarial(infos) {
       break;
     }
   }
-  for (let item of dados) {
+  for (let item of infos) {
     if (item[0] === "J") {
       somaJ = item.slice(1);
       for (let i of somaJ) {
@@ -37,7 +37,7 @@ function mediaSalarial(infos) {
       break;
     }
   }
-  for (let item of dados) {
+  for (let item of infos) {
     if (item[0] === "I") {
       somaI = item.slice(1);
       for (let i of somaI) {
