@@ -7,12 +7,15 @@ const dados = [
 function transf(infos) {
   for (let item of infos) {
     let listSalar = item.slice(1);
+    let listOrdem = listSalar.sort(function (a, b) {
+      return a - b;
+    });
     let salarMax = Math.max(...listSalar);
     let initialValue = 0;
     if (item[0] === "A") {
       item.splice(item, item.length, {
         faixaEtaria: "Adulto",
-        salarios: listSalar.sort(),
+        salarios: listOrdem,
         mediaSalarial: (
           listSalar.reduce(
             (previousValue, currentValue) => previousValue + currentValue,
@@ -24,7 +27,7 @@ function transf(infos) {
     } else if (item[0] === "J") {
       item.splice(item, item.length, {
         faixaEtaria: "Jovem",
-        salarios: listSalar.sort(),
+        salarios: listOrdem,
         mediaSalarial: (
           listSalar.reduce(
             (previousValue, currentValue) => previousValue + currentValue,
@@ -36,7 +39,7 @@ function transf(infos) {
     } else {
       item.splice(item, item.length, {
         faixaEtaria: "Idoso",
-        salarios: listSalar.sort(),
+        salarios: listOrdem,
         mediaSalarial: (
           listSalar.reduce(
             (previousValue, currentValue) => previousValue + currentValue,
